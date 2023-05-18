@@ -9,6 +9,7 @@ import Error from "./Components/Pages/Error";
 import Login from "./Components/Pages/Login";
 import Register from "./Components/Pages/Register";
 import "./index.css";
+import Page404 from "./Components/Pages/Page404";
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
 
   {
     path:"*",
-    element:<Error></Error>
+    element:<Page404></Page404>
   }
 ]);
 
