@@ -9,9 +9,14 @@ const Home = () => {
     return (
         <div className="py-5">
             <Hero></Hero>
-            <p className="text-3xl text-center py-2 md:py-5">Gallery</p>
+
+            <p className="text-3xl text-center py-2 md:py-5 text-white font-bold">Gallery</p>
             <Gallery></Gallery>
+
+            <p className="text-3xl text-center py-2 md:py-5 text-white font-bold">Car Toys</p>
             <Cars></Cars>
+
+            <p className="text-3xl text-center py-2 md:py-5 text-white font-bold">Gallery</p>
             <Popular_Cars></Popular_Cars>
 
         </div>
