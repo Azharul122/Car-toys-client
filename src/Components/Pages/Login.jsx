@@ -2,37 +2,53 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 const Login = () => {
 
     
-    // const { signIn } = useContext(AuthContext)
-    // const location = useLocation()
-    // console.log("login", location)
-    // const navigate = useNavigate()
-    // const from = location.state?.from?.pathname || "/"
+    const {signIn}  = useContext(AuthContext)
+    const location = useLocation()
+    console.log("login", location)
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/"
 
-    // const [message, setMessage] = useState("")
+    const [message, setMessage] = useState("")
 
 
-    // const handleLogin = event => {
-    //     event.preventDefault()
-    //     const email = event.target.email.value;
-    //     const password = event.target.password.value;
+    const handleLogin = event => {
+        event.preventDefault()
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
-    //     console.log(email, password)
-    //     signIn(email, password)
-    //         .then(result => {
-    //             const loggeduser = result.user;
-    //             navigate(from)
-    //             console.log(loggeduser)
-    //         })
-    //         .catch(error => {
-    //             setMessage("Email Password didin't matched")
-    //         })
-    // }
-    const handleLogin=()=>{
-
+        console.log(email, password)
+        signIn(email, password)
+            .then(result => {
+                const loggeduser = result.user;
+                navigate(from)
+                console.log(loggeduser)
+            })
+            .catch(error => {
+                setMessage("Email Password didin't matched")
+            })
     }
+    // const handleLogin=()=>{
+
+    // }
+
+    const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+    const nevigate = useNavigate();
+
+    const handleGoogleSignUp = () => {
+        signInWithPopup(auth, googleProvider)
+          .then((result) => {
+            const user = result.user;
+            nevigate("/");
+          })
+          .then((error) => {
+            console.log(error);
+          });
+      };
 
     return (
         
@@ -50,6 +66,19 @@ const Login = () => {
                 >
                     Sign In
                 </button>
+
+                
+          <button
+            onClick={handleGoogleSignUp}
+            className="flex justify-center items-center gap-2 py-2 px-3 bg-[#374151] rounded"
+          >
+            <img
+              src="https://img.freepik.com/premium-psd/google-icon-isolated_68185-565.jpg?w=360"
+              className="w-[30px] h-[30px] "
+              alt=""
+            />
+            Google
+          </button>
             </form>
         </div>
     );

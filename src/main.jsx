@@ -10,7 +10,7 @@ import Login from "./Components/Pages/Login";
 import Register from "./Components/Pages/Register";
 import "./index.css";
 import Page404 from "./Components/Pages/Page404";
-
+import AuthProvider from "./Components/Provider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -27,9 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: (
-            <Blog></Blog>
-        ),
+        element: <Blog></Blog>,
       },
       // {
       //   path: "/chef-reciepies/:id",
@@ -49,13 +47,15 @@ const router = createBrowserRouter([
   },
 
   {
-    path:"*",
-    element:<Page404></Page404>
-  }
+    path: "*",
+    element: <Page404></Page404>,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
