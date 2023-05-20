@@ -43,11 +43,11 @@ const Header = () => {
               <Link to={"/"} className="px-5 py-2">
                 Home
               </Link>
-              <Link to={"/all-cars"} className="px-5 py-2">
-                All Cars
+              <Link to={"/all-toys"} className="px-5 py-2">
+                All Toys
               </Link>
-              <Link to={"/my-cars"} className="px-5 py-2">
-                My Cars
+              <Link to={"/my-toys"} className="px-5 py-2">
+                My Toys
               </Link>
               <Link to={"/blog"} className="px-5 py-2">
                 Blog

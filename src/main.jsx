@@ -11,6 +11,9 @@ import Register from "./Components/Pages/Register";
 import "./index.css";
 import Page404 from "./Components/Pages/Page404";
 import AuthProvider from "./Components/Provider/AuthProvider";
+import All_Toys from "./Components/toys/All_Toys";
+import My_toy from "./Components/toys/My_toy";
+import Add_Toy from "./Components/toys/Add_Toy";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +46,20 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register></Register>,
       },
+      {
+        path: "all-toys",
+        element: <All_Toys></All_Toys>,
+        loader: ()=>fetch('http://localhost:5000/toys/')
+      },
+      {
+        path: "my-toys",
+        element:<My_toy></My_toy>,
+      },
+      {
+        path: "add-toys",
+        element:<Add_Toy></Add_Toy>,
+      },
+
     ],
   },
 
