@@ -74,7 +74,7 @@ Swal.fire({
               {
                 user && (
                   toys.filter(toy=>toy.sellerMail==user.email).map(t=>(
-                    <tr className="active">
+                    <tr className="bg-white odd:bg-[#1E293B]">
                     
                     <td>{t.name}</td>
                     <td>{t.quantity}</td>

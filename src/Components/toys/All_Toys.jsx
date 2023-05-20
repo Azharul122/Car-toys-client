@@ -61,7 +61,7 @@ const All_Toys = () => {
 
 
                             toys.filter(toy=>toy.name.toLowerCase().includes(searh)).map(toy=>(
-                                <div className="card shadow shadow-sm shadow-slate-600 p-5 bg-slate-800" key={toy._id}>
+                                <div className="card shadow shadow-sm shadow-slate-600 p-5 bg-slate-800 bottom-0" key={toy._id}>
                                     <p className='text-xl text-white text-center mb-5'>{toy.name}</p>
                                     <div className="md:flex justify-between mb-5">     
                                     <p><FontAwesomeIcon icon={faCalculator} />  {toy.quantity}</p>
@@ -70,7 +70,9 @@ const All_Toys = () => {
                                    <p className=''><FontAwesomeIcon icon={faUser} /> {toy.sellerName}</p>
                                     <p>${toy.price}</p>
                                    </div>
-                                   <Link to={`/toy-details/${toy._id}`} className='bg-slate-600 py-2 px-4 rounded'>View Details</Link>
+                                  <div className="text-center">
+                                  <Link to={`/toy-details/${toy._id}`} className='bg-slate-600 py-2 px-4 rounded bottom-0 w-[50%] md:w-[80%] text-center'>View Details</Link>
+                                  </div>
                                 </div>
                             ))
                         }
