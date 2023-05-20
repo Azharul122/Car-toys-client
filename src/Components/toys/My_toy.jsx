@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,9 +14,9 @@ const My_toy = () => {
   const [toys,setToys] = useState(useLoaderData());
   const {_id}=toys
 
-const handleUpdate=(event)=>{
+// const handleUpdate=(event)=>{
 
-}
+// }
 
 const handleDelete=(_id)=>{
 console.log(_id)
@@ -73,7 +73,7 @@ Swal.fire({
 
               {
                 user && (
-                  toys.filter(toy=>toy.sellerName==user.displayName).map(t=>(
+                  toys.filter(toy=>toy.sellerMail==user.email).map(t=>(
                     <tr className="active">
                     
                     <td>{t.name}</td>
@@ -84,7 +84,7 @@ Swal.fire({
                     <td>{t.sellerMail}</td>
                     <td><img src={t.photoURL} alt="" className="w-[40px] h-[40px]" /></td>
                     <td>{t.description}</td>
-                    <td><FontAwesomeIcon onClick={handleUpdate} icon={faEdit}  className="text-green-600 mr-2 cursor-pointer"/>
+                    <td><Link to={`http://localhost:5173/update-toy/${t._id}`}> <FontAwesomeIcon  icon={faEdit}  className="text-green-600 mr-2 cursor-pointer"/></Link>
                     <FontAwesomeIcon onClick={()=> handleDelete(t._id)} icon={faTrash}  className="text-red-600 cursor-pointer"/>
                     </td>
                    

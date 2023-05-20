@@ -9,14 +9,16 @@ import { faUser,faCalculator } from '@fortawesome/free-solid-svg-icons'
 const All_Toys = () => {
     //const toys=useLoaderData()
     const[toys,setToys]=useState(useLoaderData())
+    const [searh,setSearch]=useState("")
     const { user  } = useContext(AuthContext);
 
-const handleSearch=event=>{
-    const search=document.getElementById("search").value
-    // const searchValue=event.target.saerch.value;
-    const filtredToy=toys.filter(toy=>toy.name==search)
-    setToys(filtredToy)
-}
+// const handleSearch=event=>{
+//     const search=document.getElementById("search").value
+//     console.log(search)
+//     // const searchValue=event.target.saerch.value;
+//     const filtredToy=toys.filter(toy=>toy.name.toLowerCase().includes(search))
+//     setToys(filtredToy)
+// }
 
 
     return (
@@ -29,8 +31,9 @@ const handleSearch=event=>{
               type="text" name='search' id='search'
               placeholder="Search…"
               className="input input-bordered"
+              onChange={(e)=>setSearch(e.target.value)}
             />
-            <button className="btn btn-square" onClick={handleSearch}>
+            <button className="btn btn-square" >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -57,7 +60,7 @@ const handleSearch=event=>{
 
 
 
-                            toys.map(toy=>(
+                            toys.filter(toy=>toy.name.toLowerCase().includes(searh)).map(toy=>(
                                 <div className="card shadow shadow-sm shadow-slate-600 p-5 bg-slate-800" key={toy._id}>
                                     <p className='text-xl text-white text-center mb-5'>{toy.name}</p>
                                     <div className="md:flex justify-between mb-5">     
