@@ -14,6 +14,7 @@ import AuthProvider from "./Components/Provider/AuthProvider";
 import All_Toys from "./Components/toys/All_Toys";
 import My_toy from "./Components/toys/My_toy";
 import Add_Toy from "./Components/toys/Add_Toy";
+import Toy_details from "./Components/toys/Toy_details";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: "all-toys",
         element: <All_Toys></All_Toys>,
         loader: ()=>fetch('http://localhost:5000/toys/')
+      },
+      {
+        path: "toy-details/:id",
+        element: <Toy_details></Toy_details>,
+        loader: ({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
       },
       {
         path: "my-toys",

@@ -70,8 +70,8 @@ const Header = () => {
             <Link to={"/"} className="ml-5">
               Home
             </Link>
-            <Link to={"/all-cars"}>All Cars</Link>
-            <Link to={"/my-cars"}>My Cars</Link>
+            <Link to={"/all-toys"}>All Toys</Link>
+            <Link to={"/my-toys"}>My Toys</Link>
             <Link to={"/blog"}>Blog</Link>
           </ul>
         </div>

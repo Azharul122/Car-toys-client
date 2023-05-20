@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser,faCalculator } from '@fortawesome/free-solid-svg-icons'
 
 const All_Toys = () => {
     const toys=useLoaderData()
@@ -38,12 +42,16 @@ const All_Toys = () => {
 // subCategory
 
                             toys.map(toy=>(
-                                <div className="card shadow shadow-sm shadow-slate-600 p-2" key={toy._id}>
-                                    <p>{toy.sellerName}</p>
-                                    <p>{toy.name}</p>
-                                    <p>{toy.quantity}</p>
-                                    <p>{toy.subCategory}</p>
-                                    <p>{toy.price}</p>
+                                <div className="card shadow shadow-sm shadow-slate-600 p-5 bg-slate-800" key={toy._id}>
+                                    <p className='text-xl text-white text-center mb-5'>{toy.name}</p>
+                                    <div className="md:flex justify-between mb-5">     
+                                    <p><FontAwesomeIcon icon={faCalculator} />  {toy.quantity}</p>
+                                    <p> {toy.subCategory}</p></div>
+                                   <div className="md:flex justify-between mb-5">
+                                   <p className=''><FontAwesomeIcon icon={faUser} /> {toy.sellerName}</p>
+                                    <p>${toy.price}</p>
+                                   </div>
+                                   <Link to={`/toy-details/${toy._id}`} className='bg-slate-600 py-2 px-4 rounded'>View Details</Link>
                                 </div>
                             ))
                         }
