@@ -1,0 +1,14 @@
+.brand{
+    white-space: no-wrap;
+    animation: slide 10s linear infinite;
+    background-color: black;
+    
+}
+@keyframes slide{
+0%{
+    transform: translateX(0);
+}
+100%{
+    transform: translate(-100%);
+}
+}

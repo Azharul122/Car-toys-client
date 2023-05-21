@@ -1,6 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../Provider/AuthProvider';
 // import 'react-tabs/style/react-tabs.css';
 
 const Cars = () => {
@@ -8,6 +13,7 @@ const Cars = () => {
     const [sportsCar,setsportsCar]=useState([])
     const [offRoadCar,setoffRoad]=useState([])
     const [vintageCar,setvintageCar]=useState([])
+    const {user}=useContext(AuthContext)
     useEffect(() => {
         fetch("http://localhost:5000/cars/")
           .then((res) => res.json())
@@ -43,10 +49,24 @@ const [cars,id]=sportsCar
           .then((res) => res.json())
           .then((data) => setvintageCar(data));
       }, []);
-      const [vintage]=vintageCar
+      const [vintage]=vintageCar 
+
+const handleViewDetails=()=>{
+if(user){
+
+}
+else{
+  // alert("Please ")
+  setInterval(toast("Please login"), 3000);
+window.location.href="/login"
+  
+}
+}
+      
 
     return (
         <div>
+          <ToastContainer></ToastContainer>
             <div className="container mx-auto">
           
             <Tabs>
@@ -79,7 +99,10 @@ const [cars,id]=sportsCar
                        <p>${car.price}</p>
                   </div>
                   <div className="card-actions">
-                    <button className="btn btn-primary">Buy Now</button>
+         
+                    <button className="btn btn-primary" onClick={handleViewDetails}> View Details</button>
+        
+                    
                   </div>
                 </div>
               </div>
