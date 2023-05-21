@@ -8,9 +8,12 @@ import { faUser,faCalculator } from '@fortawesome/free-solid-svg-icons'
 
 const All_Toys = () => {
     //const toys=useLoaderData()
-    const[toys,setToys]=useState(useLoaderData())
+    let [toys,setToys]=useState(useLoaderData())
     const [searh,setSearch]=useState("")
     const { user  } = useContext(AuthContext);
+    const limit =20
+     toys=toys.slice(0, limit);
+   
 
 // const handleSearch=event=>{
 //     const search=document.getElementById("search").value
@@ -29,7 +32,7 @@ const All_Toys = () => {
           <div className="input-group">
             <input
               type="text" name='search' id='search'
-              placeholder="Search…"
+              placeholder="Search By Toy Name"
               className="input input-bordered"
               onChange={(e)=>setSearch(e.target.value)}
             />
