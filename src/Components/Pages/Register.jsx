@@ -13,7 +13,7 @@ import {
 } from "firebase/auth";
 
 const Register = () => {
-
+  document.title="CarZone | register"
     const [error, setError] = useState("");
 
     const auth = getAuth();

@@ -5,10 +5,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 const Login = () => {
 
-    
+    document.title="CarZone | login"
     const {signIn}  = useContext(AuthContext)
     const location = useLocation()
-    console.log("login", location)
+    console.log("login", location.pathname)
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || "/"
 

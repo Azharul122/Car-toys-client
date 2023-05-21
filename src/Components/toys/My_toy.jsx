@@ -12,7 +12,7 @@ const My_toy = () => {
   const { user } = useContext(AuthContext);
   let [toys, setToys] = useState(useLoaderData());
   const { _id } = toys;
-
+  document.title="CarZone | My Toys"
   //   let e = document.getElementById("sortTot");
   // let value = e.value;
   // let text = value.options[e.selectedIndex].text;

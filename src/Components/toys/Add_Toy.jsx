@@ -7,9 +7,10 @@ const Add_Toy = () => {
     // const sellerName= document.getElementById("sellerName");
     // sellerName.innerText=user?user.displayName:"Name"
 // console.log(user?user.displayName:"Name")
-
+document.title="CarZone | Add Toy"
 
 const handleAddToy=(event)=>{
+
     event.preventDefault()
 const form=event.target
 const name=form.name.value

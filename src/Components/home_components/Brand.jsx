@@ -1,9 +1,12 @@
 import React from 'react';
 import "./Brand.css/"
+import Aos from 'aos';
 const Brand = () => {
+    Aos.init();
     return (
         <div className='flex gap-5'>
-            <div className="brand w-[90%]  md:w-[80%] mx-auto flex gap-5">
+            <div className="brand w-[90%]  md:w-[80%] mx-auto flex gap-5" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
                 <img src="https://cdn11.bigcommerce.com/s-rejby4tfjq/images/stencil/original/i/acme_logo-test_1583268457__90581.original.jpg" alt="" className='[h-200px] w-[200px]' />
                 <img src="https://cdn11.bigcommerce.com/s-rejby4tfjq/images/stencil/original/n/arko_logo_1583268926__74598.original.jpg" alt="" className='[h-200px] w-[200px]' />
                 <img src="https://cdn11.bigcommerce.com/s-rejby4tfjq/images/stencil/original/f/at%20collections%20logo_1583871076__09337.original.png" alt="" className='[h-200px] w-[200px]' />

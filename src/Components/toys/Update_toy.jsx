@@ -2,7 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+document.title="CarZone | update toy"
 const Update_toy = () => {
 const toy=useLoaderData();
 

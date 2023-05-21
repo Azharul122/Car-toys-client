@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faCalculator } from '@fortawesome/free-solid-svg-icons'
 
 const All_Toys = () => {
+  document.title="CarZone | All Toys"
     //const toys=useLoaderData()
     let [toys,setToys]=useState(useLoaderData())
     const [searh,setSearch]=useState("")

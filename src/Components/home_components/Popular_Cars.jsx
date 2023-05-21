@@ -1,3 +1,4 @@
+import Aos from "aos";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
@@ -15,8 +16,9 @@ const Popular_Cars = () => {
   // const [cars]=popular
   //   const [fpopular]=allpular
   console.log({ popular });
+  Aos.init();
   return (
-    <div className="container mx-auto">
+    <div  className="container mx-auto" data-aos="flip-left">
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5">
         <div className="card w-96 bg-base-100 shadow-xl">

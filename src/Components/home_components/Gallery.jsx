@@ -1,9 +1,12 @@
+import Aos from 'aos';
 import React from 'react';
 
 const Gallery = () => {
+    Aos.init();
     return (
         <div>
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
                 <img className='h-[20vw]' src="https://images.pexels.com/photos/10216080/pexels-photo-10216080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 <img className='h-[20vw]' src="https://images.pexels.com/photos/9998354/pexels-photo-9998354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 <img className='h-[20vw]' src="https://images.pexels.com/photos/5431662/pexels-photo-5431662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />

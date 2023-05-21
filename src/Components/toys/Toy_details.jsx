@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const Toy_details = () => {
+  document.title="CarZone | Toy Details"
   const { id } = useParams;
   const toy = useLoaderData();
   console.log(toy);

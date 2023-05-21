@@ -6,9 +6,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Provider/AuthProvider';
+import Aos from 'aos';
 // import 'react-tabs/style/react-tabs.css';
 
 const Cars = () => {
+  
     const [toysCar,settoysCar]=useState([])
     const [sportsCar,setsportsCar]=useState([])
     const [offRoadCar,setoffRoad]=useState([])
@@ -62,12 +64,13 @@ window.location.href="/login"
   
 }
 }
-      
+Aos.init();
 
     return (
         <div>
           <ToastContainer></ToastContainer>
-            <div className="container mx-auto">
+            <div className="container mx-auto" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
           
             <Tabs>
             <TabList>

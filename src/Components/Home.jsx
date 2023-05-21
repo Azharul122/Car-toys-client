@@ -1,3 +1,4 @@
+import Aos from "aos";
 import Brand from "./home_components/Brand";
 import Cars from "./home_components/Cars";
 import Hero from "./home_components/Hero";
@@ -7,6 +8,8 @@ import Gallery from "./home_components/gallery";
 
 
 const Home = () => {
+    Aos.init();
+    document.title="CarZone | Home"
     return (
         <div className="py-5">
             <Hero></Hero>
