@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Page404 = () => {
     return (
-        <div className='h-[100vh] w-full '>
-            <h1 className='h-full w-full text-[10vw] flex items-center justify-center shadow shadow-xl shadow-slate-700'><span className='text-red-500 mr-4'>404 </span> not found</h1>
-            {/* <Link to={"/"}>Back to Home</Link> */}
-        </div>
+        <div className=''>
+                <div className="relative h-[100vh] w-full flex items-center justify-center bg-[url('https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-404.png')] bg-center">
+                  <Link to={"/"} className='text-end px-4 py-2 bg-slate-600 text-white absolute'>Back to home</Link>
+                </div>
+          </div>
     );
 };
 
