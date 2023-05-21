@@ -69,8 +69,7 @@ Aos.init();
     return (
         <div>
           <ToastContainer></ToastContainer>
-            <div className="container mx-auto" data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom">
+            <div className="w-full md:w-[90%] mx-auto md:px-0 px-4" data-aos="flip-right">
           
             <Tabs>
             <TabList>
@@ -90,7 +89,7 @@ Aos.init();
       cars && <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5">
         {
             cars.cars.map(car=>(
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card  bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                 <img src={car.image} alt="" className='w-full h-[200px]'/>
 
