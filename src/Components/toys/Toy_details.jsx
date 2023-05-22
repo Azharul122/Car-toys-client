@@ -24,9 +24,9 @@ const Toy_details = () => {
 
 
 
-      <div className="container mx-auto md:flex justify-around items-center py-5">
-        <div className="">
-          <img src={photoURL} alt="" />
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 justify-around items-center py-5">
+        <div className="text-center">
+          <img src={photoURL} alt=""  className="h-[40vh] w-[40vw]"/>
         </div>
         <div className="">
           <div className="flex gap-1">

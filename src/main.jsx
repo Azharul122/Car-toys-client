@@ -16,6 +16,8 @@ import My_toy from "./Components/toys/My_toy";
 import Add_Toy from "./Components/toys/Add_Toy";
 import Toy_details from "./Components/toys/Toy_details";
 import Update_toy from "./Components/toys/Update_toy";
+import Single_toy from "./Components/home_components/Single_toy";
+import PrivateRoute from "./Components/Provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,11 +27,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: ()=>fetch('https://cars-server-eta.vercel.app/toys/')
       },
-      {
-        path: "/about",
-        element: <About></About>,
-      },
+  
       {
         path: "/blog",
         element: <Blog></Blog>,
@@ -49,13 +49,18 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "single-toy/:id",
+        element:<Single_toy></Single_toy>,
+        loader: ({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+      },
+      {
         path: "all-toys",
-        element: <All_Toys></All_Toys>,
-        loader: ()=>fetch('http://localhost:5000/toys/')
+        element: <PrivateRoute><All_Toys></All_Toys></PrivateRoute>,
+        loader: ()=>fetch('https://cars-server-eta.vercel.app/toys/')
       },
       {
         path: "toy-details/:id",
-        element: <Toy_details></Toy_details>,
+        element: <PrivateRoute><Toy_details></Toy_details></PrivateRoute>,
         loader: ({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
       },
       {
@@ -65,8 +70,8 @@ const router = createBrowserRouter([
       },
       {
         path: "my-toys",
-        element:<My_toy></My_toy>,
-        loader: ()=>fetch('http://localhost:5000/toys/')
+        element:<PrivateRoute><My_toy></My_toy></PrivateRoute>,
+        loader: ()=>fetch('https://cars-server-eta.vercel.app/toys/')
       },
       {
         path: "add-toys",

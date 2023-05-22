@@ -3,16 +3,18 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+// import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     document.title="CarZone | login"
+    const navigate = useNavigate()
     const {signIn}  = useContext(AuthContext)
     const location = useLocation()
-    console.log("login", location.pathname)
-    const navigate = useNavigate()
-    const from = location.state?.from?.pathname || "/"
-
     const [message, setMessage] = useState("")
+    const from = location.state?.from?.pathname || "/"
+console.log(location)
 
 
     const handleLogin = event => {
@@ -51,9 +53,10 @@ const Login = () => {
       };
 
     return (
-        
+     
         <div className="py-10 flex justify-center items-center text-center">
             <form className="w-[80%] md:w-[50%] mx-auto " onSubmit={handleLogin}>
+            <ToastContainer></ToastContainer>
             <input type="email" name="email" placeholder="Entar email" className="mb-5 input input-bordered w-full max-w-xs" />
             <br />
             <input type="password" name="password" placeholder="Enter Password" className="mb-5 input input-bordered w-full max-w-xs" />
@@ -77,7 +80,6 @@ const Login = () => {
               className="w-[30px] h-[30px] "
               alt=""
             />
-            Google
           </button>
             </form>
         </div>

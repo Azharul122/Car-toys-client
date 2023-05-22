@@ -3,7 +3,7 @@ import Brand from "./home_components/Brand";
 import Cars from "./home_components/Cars";
 import Hero from "./home_components/Hero";
 import Popular_Cars from "./home_components/Popular_Cars";
-import Gallery from "./home_components/gallery";
+import Gallery from "./home_components/Gallery";
 
 
 
