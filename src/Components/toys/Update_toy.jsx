@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 document.title="CarZone | update toy"
 const Update_toy = () => {
 const toy=useLoaderData();
@@ -25,22 +26,49 @@ const quantity=form.quantity.value
 const price=form.price.value
 const description=form.description.value
 const updateToy={quantity,price,description};
+console.log(updateToy)
 
 
-  fetch(`http://localhost:5000/toy/${_id}`,{
-    method: 'put',
+  fetch(`http://localhost:5000/toyUpdate/${_id}`,{
+    method: 'PUT',
     headers:{
-        'content-type':'application/json'
+        'Content-Type': 'application/json'
     },
     body:JSON.stringify(updateToy)
 })
 .then(res=>res.json())
 .then(data=>{
+    console.log(data)
     if(data.modifiedCount>0){
-        toast("Data Updated successfully")
+         
+Swal.fire({
+
+    position: 'center',
+    icon: 'success',
+    showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+    showConfirmButton: false,
+    timer: 1500
+  })
     }
     else{
-        toast("Try Again")
+        Swal.fire({
+
+            position: 'center',
+            icon: 'error',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              },
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 })
 }
