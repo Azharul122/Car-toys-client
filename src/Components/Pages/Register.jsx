@@ -69,8 +69,9 @@ const Register = () => {
        <p className="py-5 text-red-500" id="messageDiv">{error}</p>
        </div>
 
-        <div className="py-10 flex justify-center items-center text-center">
-      <form className="w-[80%] md:w-[50%] mx-auto " onSubmit={handleRegister}>
+        <div className="pb-5 flex justify-center items-center text-center">
+      <form className="w-[80%] md:w-[50%] mx-auto shadow shadow-lg shadow-slate-800 px-5 py-4 bg-slate-800" onSubmit={handleRegister}>
+        <p className="text-white py-5 font-['EB Garamond', serif] text-3xl">Shign Up</p>
       <input type="text" name="name" placeholder="Entar Name" className="mb-5 input input-bordered w-full max-w-xs" />
       <br />
       <input type="text" name="photo" placeholder="Entar Photo URL" className="mb-5 input input-bordered w-full max-w-xs" />

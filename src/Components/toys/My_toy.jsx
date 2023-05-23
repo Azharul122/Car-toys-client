@@ -34,7 +34,7 @@ const My_toy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toy/${_id}`, {
+        fetch(`https://cars-server-eta.vercel.app/toy/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -83,14 +83,15 @@ const My_toy = () => {
     });
   };
 
-
+  let sortedToy = [...toys];
+  
   const filterToy = (value) => {
     console.log(value);
-    let sortedToy = [...toys];
-    if (filter == "ASC") {
+   
+    if (value == "ASC") {
       sortedToy = sortedToy.sort((a, b) => a.price - b.price);
     }
-    if (filter == "DESC") {
+    if (value == "DESC") {
       sortedToy = sortedToy.sort((a, b) => b.price - a.price);
     }
     setToys(sortedToy);
@@ -103,9 +104,10 @@ const My_toy = () => {
           className="absolute px-4 py-2 text-white font-bold"
           name="sortTot"
           id="sortTot"
-          onChange={(e) => filterToy(setfilter(e.target.value))}
+          onChange={(e) => filterToy(e.target.value)}
         >
-          <option value="ASC" selected>
+          <option value="" disabled selected>Filter by Price</option>
+          <option value="ASC">
             Ascanding
           </option>
           <option value="DESC">Descanding</option>
@@ -153,7 +155,7 @@ const My_toy = () => {
                       </td>
                       <td>{t.description}</td>
                       <td>
-                        <Link to={`http://localhost:5173/update-toy/${t._id}`}>
+                        <Link to={`/update-toy/${t._id}`}>
                           {" "}
                           <FontAwesomeIcon
                             icon={faEdit}

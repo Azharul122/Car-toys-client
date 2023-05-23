@@ -29,7 +29,7 @@ const updateToy={quantity,price,description};
 console.log(updateToy)
 
 
-  fetch(`http://localhost:5000/toyUpdate/${_id}`,{
+  fetch(`https://cars-server-eta.vercel.app/toyUpdate/${_id}`,{
     method: 'PUT',
     headers:{
         'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ Swal.fire({
   })
   setTimeout(()=>{
      nevigate("../my-toys/")
-    // <Link to={"http://localhost:5173/my-toy"}></Link>
+    // <Link to={"https://cars-server-eta.vercel.app//my-toy"}></Link>
   },1600)
     }
     else{
@@ -80,8 +80,10 @@ Swal.fire({
     return (
         <div>
             <ToastContainer></ToastContainer>
-            <div className="container mx-auto h-[50vh] justify-center items-center flex">
-        <form className="w-[90%] md:w-[80%] bg-black p-5" onSubmit={handleToy}>
+            <div className="container mx-auto py-5 justify-center items-center flex">
+        <form className="w-[90%] md:w-[60%] bg-slate-800 p-5" onSubmit={handleToy}>
+        <p className="text-white pb-5 font-['EB Garamond'] text-3xl text-center">Update toy</p>
+
             <div className="grid grid-cols-2 gap-5 text-white mb-3">
             <div className="">
                     <label htmlFor="">Price</label>

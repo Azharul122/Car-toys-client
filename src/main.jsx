@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       //   path: "/chef-reciepies/:id",
       //   element:<PrivateRoute> <ChefResiepes></ChefResiepes></PrivateRoute>,
       //   // loader: ({ prarams }) =>
-      //   //   fetch(`http://localhost:5000/chef/${prarams.id}`)
+      //   //   fetch(`https://cars-server-eta.vercel.app/chef/${prarams.id}`)
       // },
       {
         path: "login",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "single-toy/:id",
         element:<Single_toy></Single_toy>,
-        loader: ({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({params})=>fetch(`https://cars-server-eta.vercel.app/toy/${params.id}`)
       },
       {
         path: "all-toys",
@@ -61,12 +61,12 @@ const router = createBrowserRouter([
       {
         path: "toy-details/:id",
         element: <PrivateRoute><Toy_details></Toy_details></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({params})=>fetch(`https://cars-server-eta.vercel.app/toy/${params.id}`)
       },
       {
         path: "update-toy/:id",
         element:<Update_toy></Update_toy>,
-        loader: ({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({params})=>fetch(`https://cars-server-eta.vercel.app/toy/${params.id}`)
       },
       {
         path: "my-toys",

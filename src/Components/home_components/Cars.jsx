@@ -41,7 +41,7 @@ const {user}=useContext(AuthContext)
 
 
 //       useEffect(() => {
-//         fetch("http://localhost:5000/cars/1")
+//         fetch("https://cars-server-eta.vercel.app/cars/1")
 //           .then((res) => res.json())
 //           .then((data) => setsportsCar(data));
 //       }, []);
@@ -50,13 +50,13 @@ const {user}=useContext(AuthContext)
 //  console.log(cars)
 
 //       useEffect(() => {
-//         fetch("http://localhost:5000/cars/2")
+//         fetch("https://cars-server-eta.vercel.app/cars/2")
 //           .then((res) => res.json())
 //           .then((data) => setoffRoad(data));
 //       }, []);
 //       const [offRoad]=offRoadCar
 //       useEffect(() => {
-//         fetch("http://localhost:5000/cars/3")
+//         fetch("https://cars-server-eta.vercel.app/cars/3")
 //           .then((res) => res.json())
 //           .then((data) => setvintageCar(data));
 //       }, []);
