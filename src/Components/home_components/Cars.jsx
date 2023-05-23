@@ -142,7 +142,7 @@ if(!user){
                   </div>
                   <div className="card-actions">
          
-                  < Link to={`/toy-details/${car._id}`} onClick={handleMeassage} className='bg-slate-600 py-2 px-4 rounded bottom-0 w-[50%] md:w-[80%] text-center'>View Details</Link>
+                  < Link to={`/toy-details/${car._id}`} onClick={handleMeassage} className='bg-slate-600 py-2 px-4 rounded bottom-0  text-center'>View Details</Link>
 
         
                     
