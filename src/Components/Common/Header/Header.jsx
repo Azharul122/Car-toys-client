@@ -61,7 +61,7 @@ const Header = () => {
               className="h-[50px] w-[50px] rounded-full mr-5 md:block hidden"
             />
           </Link>
-          <Link to={"/"} className="text-xl text-white">
+          <Link to={"/"} className="text-xl  text-white">
             CarZone
           </Link>
         </div>

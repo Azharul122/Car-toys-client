@@ -11,8 +11,9 @@ const All_Toys = () => {
     //const toys=useLoaderData()
     let [toys,setToys]=useState(useLoaderData())
     const [searh,setSearch]=useState("")
+    const [limit,setLimit]=useState(20)
     const { user  } = useContext(AuthContext);
-    const limit =20
+   // const limit =20
      toys=toys.slice(0, limit);
    
 
@@ -24,7 +25,12 @@ const All_Toys = () => {
 //     setToys(filtredToy)
 // }
 
-
+// Show All
+const showAll=()=>{
+  document.getElementById("showAll").style.display="none"
+  setLimit()
+}
+console.log(searh)
     return (
         <div>
 
@@ -81,6 +87,11 @@ const All_Toys = () => {
                             ))
                         }
                 </div>
+            </div>
+
+            {/* ........................................................................... */}
+            <div className="py-5 text-center">
+            <button className='btn text-center' onClick={showAll} id='showAll'> Show All</button>
             </div>
         </div>
     );

@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 const My_toy = () => {
   const { user } = useContext(AuthContext);
   let [toys, setToys] = useState(useLoaderData());
+  let [filter,setfilter]=useState("ASC")
   const { _id } = toys;
   document.title="CarZone | My Toys"
   //   let e = document.getElementById("sortTot");
@@ -40,21 +41,56 @@ const My_toy = () => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              toast("Success Fully Deleted");
-              setToys(useLoaderData());
+              //delete success message
+              Swal.fire({
+
+                position: 'center',
+                icon: 'success',
+                title:"Data deleted successfully",
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                  },
+                  hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                  },
+                showConfirmButton: false,
+                timer: 1500
+              })
+
+              const remaining=toys.filter(toy=>toy._id!==_id)
+              setToys(remaining)
+            }
+
+            else{
+              Swal.fire({
+
+                position: 'center',
+                icon: 'error',
+                title:"Try again",
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                  },
+                  hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                  },
+                showConfirmButton: false,
+                timer: 1500
+              })
+              setToys(toys)
             }
           });
       }
     });
   };
 
+
   const filterToy = (value) => {
     console.log(value);
     let sortedToy = [...toys];
-    if (value == "ASC") {
+    if (filter == "ASC") {
       sortedToy = sortedToy.sort((a, b) => a.price - b.price);
     }
-    if (value == "DESC") {
+    if (filter == "DESC") {
       sortedToy = sortedToy.sort((a, b) => b.price - a.price);
     }
     setToys(sortedToy);
@@ -67,7 +103,7 @@ const My_toy = () => {
           className="absolute px-4 py-2 text-white font-bold"
           name="sortTot"
           id="sortTot"
-          onChange={(e) => filterToy(e.target.value)}
+          onChange={(e) => filterToy(setfilter(e.target.value))}
         >
           <option value="ASC" selected>
             Ascanding

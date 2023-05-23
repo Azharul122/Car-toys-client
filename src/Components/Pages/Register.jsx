@@ -64,7 +64,12 @@ const Register = () => {
   
     };
     return (
-      <div className="py-10 flex justify-center items-center text-center">
+    <div className="">
+       <div className="text-center">
+       <p className="py-5 text-red-500" id="messageDiv">{error}</p>
+       </div>
+
+        <div className="py-10 flex justify-center items-center text-center">
       <form className="w-[80%] md:w-[50%] mx-auto " onSubmit={handleRegister}>
       <input type="text" name="name" placeholder="Entar Name" className="mb-5 input input-bordered w-full max-w-xs" />
       <br />
@@ -84,6 +89,7 @@ const Register = () => {
           </button>
       </form>
   </div>
+    </div>
     );
 };
 

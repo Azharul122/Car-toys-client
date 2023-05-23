@@ -37,28 +37,31 @@ fetch('http://localhost:5000/toys',{
 .then(data=>{
     if(data.insertedId){
         let timerInterval
-Swal.fire({
-  title: 'Auto close alert!',
-  html: 'I will close in <b></b> milliseconds.',
-  icon:'success',
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: () => {
-    Swal.showLoading()
-    const b = Swal.getHtmlContainer().querySelector('b')
-    timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-})
+      
+        Swal.fire({
+          position: 'Center',
+          icon: 'success',
+          title: 'Data Successfully added',
+          showConfirmButton: false,
+          timer: 2000
+        })
+
+        name=""
+        quantity=""
+        price=""
+        rating=""
+        subCategory=""
+        photoURL=""
+        description=""
+    }
+   else {
+    Swal.fire({
+      position: 'Center',
+      icon: 'success',
+      title: 'Please try again',
+      showConfirmButton: false,
+      timer: 1500
+    })
     }
 })
 

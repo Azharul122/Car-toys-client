@@ -11,18 +11,27 @@ const Login = () => {
     document.title="CarZone | login"
     const navigate = useNavigate()
     const {signIn}  = useContext(AuthContext)
+   // console.log(signIn)
     const location = useLocation()
     const [message, setMessage] = useState("")
     const from = location.state?.from?.pathname || "/"
-console.log(location)
+// console.log(location)
 
+// setTimeout(()=>{
+// document.getElementById("messageDiv").style.display="none"
+// },5000)
 
     const handleLogin = event => {
         event.preventDefault()
         const email = event.target.email.value;
         const password = event.target.password.value;
+        if(email=="" || password=="")
+        {
+ 
+          return  setMessage("All fields must required")
 
-        console.log(email, password)
+        }
+        // console.log(email, password)
         signIn(email, password)
             .then(result => {
                 const loggeduser = result.user;
@@ -30,7 +39,9 @@ console.log(location)
                 console.log(loggeduser)
             })
             .catch(error => {
-                setMessage("Email Password didin't matched")
+              const errorMessage = error.message;
+             // console.log(errorMessage)
+                setMessage("Email OR Password didin't matched")
             })
     }
     // const handleLogin=()=>{
@@ -45,7 +56,7 @@ console.log(location)
         signInWithPopup(auth, googleProvider)
           .then((result) => {
             const user = result.user;
-            nevigate("/");
+            navigate(from)
           })
           .then((error) => {
             console.log(error);
@@ -57,6 +68,7 @@ console.log(location)
         <div className="py-10 flex justify-center items-center text-center">
             <form className="w-[80%] md:w-[50%] mx-auto " onSubmit={handleLogin}>
             <ToastContainer></ToastContainer>
+            <p className="py-5 text-red-500" id="messageDiv">{message}</p>
             <input type="email" name="email" placeholder="Entar email" className="mb-5 input input-bordered w-full max-w-xs" />
             <br />
             <input type="password" name="password" placeholder="Enter Password" className="mb-5 input input-bordered w-full max-w-xs" />

@@ -9,8 +9,10 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Aos from 'aos';
 // import { Toast } from 'react-toastify/dist/components';
 import Swal from 'sweetalert2';
+import Active from '../Active/Active';
 
-// import 'react-tabs/style/react-tabs.css';
+import 'react-tabs/style/react-tabs.css';
+import "./Cars.css"
 
 
 const Cars = () => {
@@ -113,9 +115,10 @@ if(!user){
 
                  
                        
-                         <Tab className={"cursor-pointer"}>Sports</Tab>
-                         <Tab className={"cursor-pointer"}>Off-road</Tab>
-                         <Tab className={"cursor-pointer"}>Vintage</Tab>
+                        <Tab className={"cursor-pointer"}>Sports</Tab>
+                        <Tab className={"cursor-pointer"}>Off-road</Tab> 
+                       <Tab className={"cursor-pointer"}>Vintage</Tab> 
+                         
                    
 
               </div>

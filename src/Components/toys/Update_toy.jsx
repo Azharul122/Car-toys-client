@@ -1,12 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 document.title="CarZone | update toy"
 const Update_toy = () => {
 const toy=useLoaderData();
-
+const nevigate=useNavigate()
 const {
     _id,
     name,
@@ -45,6 +45,7 @@ Swal.fire({
 
     position: 'center',
     icon: 'success',
+    title:"Data updated successfully",
     showClass: {
         popup: 'animate__animated animate__fadeInDown'
       },
@@ -54,6 +55,10 @@ Swal.fire({
     showConfirmButton: false,
     timer: 1500
   })
+  setTimeout(()=>{
+     nevigate("../my-toys/")
+    // <Link to={"http://localhost:5173/my-toy"}></Link>
+  },1600)
     }
     else{
         Swal.fire({
